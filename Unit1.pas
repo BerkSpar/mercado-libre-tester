@@ -40,6 +40,7 @@ type
     procedure btnParseJSONClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnGetCodeClick(Sender: TObject);
+    procedure btnCategoriesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +53,13 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Unit2;
+
+procedure TForm1.btnCategoriesClick(Sender: TObject);
+begin
+  Form2.ShowModal();
+end;
 
 procedure TForm1.btnGetCodeClick(Sender: TObject);
 var

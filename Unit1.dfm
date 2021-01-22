@@ -179,7 +179,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Categories'
     TabOrder = 14
-    OnClick = btnRefreshClick
+    OnClick = btnCategoriesClick
   end
   object NetHTTPClient1: TNetHTTPClient
     Asynchronous = False
