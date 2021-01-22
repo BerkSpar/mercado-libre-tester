@@ -172,6 +172,15 @@ object Form1: TForm1
     TabOrder = 13
     OnClick = btnParseJSONClick
   end
+  object btnCategories: TButton
+    Left = 232
+    Top = 222
+    Width = 75
+    Height = 25
+    Caption = 'Categories'
+    TabOrder = 14
+    OnClick = btnRefreshClick
+  end
   object NetHTTPClient1: TNetHTTPClient
     Asynchronous = False
     ConnectionTimeout = 60000
@@ -182,6 +191,6 @@ object Form1: TForm1
     UserAgent = 'Embarcadero URI Client/1.0'
     SecureProtocols = [SSL2, SSL3, TLS1, TLS11, TLS12]
     Left = 256
-    Top = 248
+    Top = 272
   end
 end

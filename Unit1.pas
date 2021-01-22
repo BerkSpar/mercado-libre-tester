@@ -33,6 +33,7 @@ type
     NetHTTPClient1: TNetHTTPClient;
     memResponse: TMemo;
     btnParseJSON: TButton;
+    btnCategories: TButton;
     procedure edtGetTokenClick(Sender: TObject);
     procedure btnTestSSLClick(Sender: TObject);
     procedure btnPostProductClick(Sender: TObject);
