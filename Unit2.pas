@@ -47,7 +47,7 @@ begin
   i := 0;
   while i < 31 do
   begin
-    ComboBox1.AddItem(json.GetValue<string>('['+i.ToString+'].name'), json.GetValue<string>('['+i+'].id'));
+    ComboBox1.AddItem(json.GetValue<string>('['+i.ToString+'].name'), TObject(json.GetValue<string>('['+i.ToString+'].id')));
 
     i := i + 1;
   end;

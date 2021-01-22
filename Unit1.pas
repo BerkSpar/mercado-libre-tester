@@ -28,15 +28,16 @@ type
     btnRefresh: TButton;
     Bevel1: TBevel;
     memReqProduct: TMemo;
-    btnPostProduct: TButton;
+    btnPost: TButton;
     memResProduct: TMemo;
     NetHTTPClient1: TNetHTTPClient;
     memResponse: TMemo;
     btnParseJSON: TButton;
     btnCategories: TButton;
+    btnUrl: TEdit;
     procedure edtGetTokenClick(Sender: TObject);
     procedure btnTestSSLClick(Sender: TObject);
-    procedure btnPostProductClick(Sender: TObject);
+    procedure btnPostClick(Sender: TObject);
     procedure btnParseJSONClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
     procedure btnGetCodeClick(Sender: TObject);
@@ -80,7 +81,7 @@ begin
   edtRefreshToken.Text  := json.GetValue<string>('refresh_token');
 end;
 
-procedure TForm1.btnPostProductClick(Sender: TObject);
+procedure TForm1.btnPostClick(Sender: TObject);
 var
   response: String;
   json: TStringStream;
@@ -93,7 +94,7 @@ begin
 
   json := TStringStream.Create(UTF8Encode(memReqProduct.Text));
 
-  response := client.Post('https://api.mercadolibre.com/items', json).ContentAsString(TEncoding.UTF8);
+  response := client.Post(btnUrl.Text, json).ContentAsString(TEncoding.UTF8);
 
   memResProduct.Text := response;
 end;

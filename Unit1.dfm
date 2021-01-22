@@ -135,25 +135,25 @@ object Form1: TForm1
   end
   object memReqProduct: TMemo
     Left = 8
-    Top = 191
+    Top = 222
     Width = 217
-    Height = 203
+    Height = 172
     TabOrder = 9
   end
-  object btnPostProduct: TButton
+  object btnPost: TButton
     Left = 232
-    Top = 191
+    Top = 253
     Width = 75
     Height = 25
-    Caption = 'Post Product'
+    Caption = 'Post'
     TabOrder = 10
-    OnClick = btnPostProductClick
+    OnClick = btnPostClick
   end
   object memResProduct: TMemo
     Left = 317
-    Top = 193
+    Top = 222
     Width = 217
-    Height = 201
+    Height = 172
     TabOrder = 11
   end
   object memResponse: TMemo
@@ -181,6 +181,13 @@ object Form1: TForm1
     TabOrder = 14
     OnClick = btnCategoriesClick
   end
+  object btnUrl: TEdit
+    Left = 8
+    Top = 195
+    Width = 524
+    Height = 21
+    TabOrder = 15
+  end
   object NetHTTPClient1: TNetHTTPClient
     Asynchronous = False
     ConnectionTimeout = 60000
@@ -191,6 +198,6 @@ object Form1: TForm1
     UserAgent = 'Embarcadero URI Client/1.0'
     SecureProtocols = [SSL2, SSL3, TLS1, TLS11, TLS12]
     Left = 256
-    Top = 272
+    Top = 304
   end
 end
