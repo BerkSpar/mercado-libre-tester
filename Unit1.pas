@@ -34,7 +34,8 @@ type
     memResponse: TMemo;
     btnParseJSON: TButton;
     btnCategories: TButton;
-    btnUrl: TEdit;
+    edtUrl: TEdit;
+    btnGet: TButton;
     procedure edtGetTokenClick(Sender: TObject);
     procedure btnTestSSLClick(Sender: TObject);
     procedure btnPostClick(Sender: TObject);
@@ -42,10 +43,11 @@ type
     procedure btnRefreshClick(Sender: TObject);
     procedure btnGetCodeClick(Sender: TObject);
     procedure btnCategoriesClick(Sender: TObject);
+    procedure btnGetClick(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    function getClient(): TNetHTTPClient;
   end;
 
 var
@@ -60,6 +62,15 @@ uses Unit2;
 procedure TForm1.btnCategoriesClick(Sender: TObject);
 begin
   Form2.ShowModal();
+end;
+
+procedure TForm1.btnGetClick(Sender: TObject);
+var
+  client: TNetHTTPClient;
+begin
+  client := getClient();
+
+  memReqProduct.Text := client.Get(edtUrl.Text).ContentAsString();
 end;
 
 procedure TForm1.btnGetCodeClick(Sender: TObject);
@@ -164,6 +175,16 @@ begin
 
   if response.StatusCode = 200 then
     btnParseJSON.Click();
+end;
+
+function TForm1.getClient: TNetHTTPClient;
+var
+  client: TNetHTTPClient;
+begin
+  client := TNetHTTPClient.Create(nil);
+  client.SecureProtocols := [THTTPSecureProtocol.SSL2, THTTPSecureProtocol.SSL3, THTTPSecureProtocol.TLS1, THTTPSecureProtocol.TLS11, THTTPSecureProtocol.TLS12];
+
+  result := client;
 end;
 
 end.

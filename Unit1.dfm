@@ -181,12 +181,21 @@ object Form1: TForm1
     TabOrder = 14
     OnClick = btnCategoriesClick
   end
-  object btnUrl: TEdit
+  object edtUrl: TEdit
     Left = 8
     Top = 195
     Width = 524
     Height = 21
     TabOrder = 15
+  end
+  object btnGet: TButton
+    Left = 232
+    Top = 284
+    Width = 75
+    Height = 25
+    Caption = 'Get'
+    TabOrder = 16
+    OnClick = btnGetClick
   end
   object NetHTTPClient1: TNetHTTPClient
     Asynchronous = False
@@ -197,7 +206,7 @@ object Form1: TForm1
     ContentType = 'application/json'
     UserAgent = 'Embarcadero URI Client/1.0'
     SecureProtocols = [SSL2, SSL3, TLS1, TLS11, TLS12]
-    Left = 256
-    Top = 304
+    Left = 400
+    Top = 176
   end
 end
