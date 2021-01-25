@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object lblClient: TLabel
@@ -206,7 +207,7 @@ object Form1: TForm1
     ContentType = 'application/json'
     UserAgent = 'Embarcadero URI Client/1.0'
     SecureProtocols = [SSL2, SSL3, TLS1, TLS11, TLS12]
-    Left = 400
-    Top = 176
+    Left = 368
+    Top = 168
   end
 end

@@ -3,7 +3,7 @@ object Form2: TForm2
   Top = 0
   Caption = 'Form2'
   ClientHeight = 313
-  ClientWidth = 558
+  ClientWidth = 639
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,37 +11,42 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object ComboBox1: TComboBox
+  object lblCategoryId: TLabel
     Left = 8
-    Top = 8
-    Width = 542
+    Top = 14
+    Width = 59
+    Height = 13
+    Caption = 'Category ID'
+  end
+  object edtCategoryId: TEdit
+    Left = 8
+    Top = 29
+    Width = 105
     Height = 21
     TabOrder = 0
-    Text = 'ComboBox1'
+    Text = 'MLB1055'
   end
-  object DBGrid1: TDBGrid
-    Left = 8
-    Top = 35
-    Width = 542
-    Height = 271
+  object btnGetAttributes: TButton
+    Left = 119
+    Top = 14
+    Width = 82
+    Height = 36
+    Caption = 'Get Attributes'
     TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    OnClick = btnGetAttributesClick
   end
-  object NetHTTPClient1: TNetHTTPClient
-    Asynchronous = False
-    ConnectionTimeout = 60000
-    ResponseTimeout = 60000
-    HandleRedirects = True
-    AllowCookies = True
-    UserAgent = 'Embarcadero URI Client/1.0'
-    Left = 472
-    Top = 136
+  object StringGrid1: TStringGrid
+    Left = 8
+    Top = 64
+    Width = 625
+    Height = 241
+    ColCount = 4
+    DefaultColWidth = 150
+    FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
+    TabOrder = 2
   end
 end

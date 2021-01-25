@@ -70,7 +70,7 @@ var
 begin
   client := getClient();
 
-  memReqProduct.Text := client.Get(edtUrl.Text).ContentAsString();
+  memResProduct.Text := client.Get(edtUrl.Text).ContentAsString();
 end;
 
 procedure TForm1.btnGetCodeClick(Sender: TObject);
@@ -98,14 +98,12 @@ var
   json: TStringStream;
   client: TNetHTTPClient;
 begin
-  client := TNetHTTPClient.Create(nil);
-
-  client.SecureProtocols := [THTTPSecureProtocol.SSL2, THTTPSecureProtocol.SSL3, THTTPSecureProtocol.TLS1, THTTPSecureProtocol.TLS11, THTTPSecureProtocol.TLS12];
+  client := getClient();
   client.CustomHeaders['Authorization'] := 'Bearer ' + edtToken.Text;
 
   json := TStringStream.Create(UTF8Encode(memReqProduct.Text));
 
-  response := client.Post(btnUrl.Text, json).ContentAsString(TEncoding.UTF8);
+  response := client.Post(edtUrl.Text, json).ContentAsString(TEncoding.UTF8);
 
   memResProduct.Text := response;
 end;
@@ -119,10 +117,7 @@ var
 begin
   url := 'https://api.mercadolibre.com/oauth/token?grant_type=refresh_token&client_id='+edtClient.Text+'&client_secret='+edtSecret.Text+'&refresh_token=' + edtRefreshToken.Text;
 
-  client := TNetHTTPClient.Create(nil);
-
-  client.SecureProtocols := [THTTPSecureProtocol.SSL2, THTTPSecureProtocol.SSL3, THTTPSecureProtocol.TLS1, THTTPSecureProtocol.TLS11, THTTPSecureProtocol.TLS12];
-  client.ContentType := 'application/x-www-form-urlencoded';
+  client := getClient();
 
   body := TStringStream.Create(nil);
 
@@ -155,11 +150,12 @@ var
   requestBody: TStringList;
   client: TNetHTTPClient;
   response: IHTTPResponse;
+  url: String;
 begin
-  client := TNetHTTPClient.Create(nil);
-
-  client.SecureProtocols := [THTTPSecureProtocol.SSL2, THTTPSecureProtocol.SSL3, THTTPSecureProtocol.TLS1, THTTPSecureProtocol.TLS11, THTTPSecureProtocol.TLS12];
+  client := getClient();
   client.ContentType := 'application/x-www-form-urlencoded';
+
+  url := 'https://api.mercadolibre.com/oauth/token';
 
   requestBody := TStringList.Create;
 
@@ -169,7 +165,7 @@ begin
   requestBody.Add('client_id=' + edtClient.Text);
   requestBody.Add('client_secret=' + edtSecret.Text);
 
-  response := client.Post('https://api.mercadolibre.com/oauth/token', requestBody);
+  response := client.Post(url, requestBody);
 
   memResponse.Text := response.ContentAsString();
 
